@@ -115,91 +115,7 @@
       </div>
     </div>
 
-    <!-- Regional Markets 
-    <div class="mb-20">
-      <h3 class="text-3xl font-bold text-white mb-8 text-center">Mercados Regionales</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {#each industryData.regionalMarkets as region, index}
-          <div 
-            class="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700 transform transition-all duration-1000"
-            class:translate-y-0={isVisible}
-            class:opacity-100={isVisible}
-            class:translate-y-10={!isVisible}
-            class:opacity-0={!isVisible}
-            style="transition-delay: {index * 100}ms;"
-          >
-            <div class="flex items-center justify-between mb-4">
-              <h4 class="text-lg font-bold text-white">{region.region}</h4>
-              <div class="text-2xl font-bold text-cyan-400">{region.marketShare}%</div>
-            </div>
-            
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <span class="text-gray-300">Ingresos:</span>
-                <span class="text-green-400 font-semibold">${region.revenue}B</span>
-              </div>
-              
-              <div class="flex justify-between items-center">
-                <span class="text-gray-300">Crecimiento:</span>
-                <span class="text-yellow-400 font-semibold">+{region.growth}%</span>
-              </div>
-              
-            
-              <div class="mt-4">
-                <div class="flex justify-between text-xs text-gray-400 mb-1">
-                  <span>Participación del mercado global</span>
-                  <span>{region.marketShare}%</span>
-                </div>
-                <div class="w-full bg-gray-700 rounded-full h-2">
-                  <div 
-                    class="bg-gradient-to-r from-cyan-500 to-purple-500 h-2 rounded-full transition-all duration-1000"
-                    style="width: {isVisible ? region.marketShare : 0}%"
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        {/each}
-        
-        
-        <div 
-          class="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 border border-gray-700 transform transition-all duration-1000"
-          class:translate-y-0={isVisible}
-          class:opacity-100={isVisible}
-          class:translate-y-10={!isVisible}
-          class:opacity-0={!isVisible}
-          style="transition-delay: 500ms;"
-        >
-          <div class="flex items-center justify-between mb-4">
-            <h4 class="text-lg font-bold text-white">Resto del Mundo</h4>
-            <div class="text-2xl font-bold text-cyan-400">1%</div>
-          </div>
-          
-          <div class="space-y-3">
-            <div class="flex justify-between items-center">
-              <span class="text-gray-300">Ingresos:</span>
-              <span class="text-green-400 font-semibold">$1.8B</span>
-            </div>
-            <div class="flex justify-between items-center">
-              <span class="text-gray-300">Crecimiento:</span>
-              <span class="text-yellow-400 font-semibold">+15.2%</span>
-            </div>
-          
-            <div class="mt-4">
-              <div class="flex justify-between text-xs text-gray-400 mb-1">
-                <span>Participación del mercado global</span>
-                <span>1%</span>
-              </div>
-              <div class="w-full bg-gray-700 rounded-full h-2">
-                <div class="bg-gradient-to-r from-cyan-500 to-purple-500 h-2 rounded-full transition-all duration-1000" style="width: {isVisible ? 1 : 0}%"></div>
-              </div>
-            </div>
-          </div>
-        -->
-      
-    
-
-    <!-- Gaming Innovation Waves - Replacing Technology Milestones -->
+    <!-- Gaming Innovation Waves -->
     <div class="mb-20">
       <h3 class="text-3xl font-bold text-white mb-8 text-center">Olas de Innovación</h3>
       <div class="bg-gray-800/50 backdrop-blur-sm rounded-lg p-8 border border-gray-700">
@@ -284,80 +200,107 @@
       </div>
     </div>
 
-    <!-- Demographics Evolution - With visible values -->
+    <!-- Demographics Evolution -->
     <div>
       <h3 class="text-3xl font-bold text-white mb-8 text-center">Evolución Demográfica</h3>
       <div class="bg-gray-800/50 backdrop-blur-sm rounded-lg p-8 border border-gray-700">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <!-- Edad Promedio -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Edad Promedio - Destacando 2023 -->
           <div class="text-center">
             <h4 class="text-xl font-bold text-white mb-4">Edad Promedio</h4>
             <div class="relative h-48 bg-gray-900 rounded-lg p-4 flex items-end justify-between">
               {#each industryData.demographicShifts as point, index}
-                <div class="flex flex-col items-center w-1/6">
+                {@const isLastYear = index === industryData.demographicShifts.length - 1}
+                <div class="flex flex-col items-center w-1/6 relative">
+                  <!-- Porcentaje arriba de la barra -->
+                  <span class="text-xs font-bold mb-1 {isLastYear ? 'text-yellow-300 text-sm' : 'text-cyan-300'}">{point.avgAge}</span>
                   <div 
-                    class="w-3 bg-gradient-to-t from-cyan-500 to-purple-500 rounded-t transition-all duration-1000 mb-1"
-                    style="height: {isVisible ? (point.avgAge / 40) * 90 : 0}px; opacity: {isVisible ? 1 : 0};"
+                    class="transition-all duration-1000 rounded-t w-3"
+                    style="
+                      height: {isVisible ? (point.avgAge / 40) * 90 : 0}px; 
+                      opacity: {isVisible ? 1 : 0};
+                      background: linear-gradient(to top, #06b6d4, #8b5cf6);
+                      box-shadow: {isLastYear ? '0 0 20px rgba(251, 191, 36, 0.7)' : 'none'};
+                      border: {isLastYear ? '2px solid #fbbf24' : 'none'};
+                    "
                   ></div>
-                  <span class="text-xs text-cyan-300 font-bold">{point.avgAge}</span>
-                  <span class="text-[10px] text-gray-400">{point.year}</span>
+                  <span class="text-[10px] mt-1 {isLastYear ? 'text-yellow-300 font-bold' : 'text-gray-400'}">{point.year}</span>
                 </div>
               {/each}
             </div>
             <div class="mt-4">
-              <span class="text-2xl font-bold text-cyan-400">
+              <span class="text-2xl font-bold text-yellow-300">
                 {industryData.demographicShifts[industryData.demographicShifts.length - 1].avgAge} años
               </span>
-              <div class="text-gray-400 text-sm">en 2023</div>
+              <div class="text-gray-300 text-sm font-semibold">en 2023</div>
             </div>
           </div>
-          <!-- Jugadoras Femeninas -->
+
+          <!-- Distribución por Género - Destacando 2015 -->
           <div class="text-center">
-            <h4 class="text-xl font-bold text-white mb-4">Jugadoras Femeninas</h4>
+            <h4 class="text-xl font-bold text-white mb-4">Distribución por Género</h4>
+            
+            <!-- Leyenda al inicio del recuadro -->
             <div class="relative h-48 bg-gray-900 rounded-lg p-4 flex items-end justify-between">
+              <!-- Leyenda en la esquina superior izquierda -->
+              <div class="absolute top-2 left-2 flex flex-col gap-1">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 bg-gradient-to-t from-pink-500 to-pink-400 rounded"></div>
+                  <span class="text-xs text-gray-300">Femenino</span>
+                  <div class="w-3 h-3 bg-gradient-to-t from-cyan-600 to-cyan-500 rounded"></div>
+                  <span class="text-xs text-gray-300">Masculino</span>
+                </div>
+              </div>
               {#each industryData.demographicShifts as point, index}
-                <div class="flex flex-col items-center w-1/6">
-                  <div 
-                    class="w-3 bg-gradient-to-t from-cyan-500 to-purple-500 rounded-t transition-all duration-1000 mb-1"
-                    style="height: {isVisible ? (point.femalePercent / 100) * 90 : 0}px; opacity: {isVisible ? 1 : 0};"
-                  ></div>
-                  <span class="text-xs text-cyan-300 font-bold">{point.femalePercent}%</span>
-                  <span class="text-[10px] text-gray-400">{point.year}</span>
+                {@const isHighlighted = point.year === 2015}
+                <div class="flex flex-col items-center w-1/6 relative">
+                  <!-- Solo el porcentaje femenino arriba -->
+                  <div class="flex flex-col items-center mb-1">
+                    <span class="text-xs font-bold {isHighlighted ? 'text-yellow-300 text-sm' : 'text-pink-300'}">{point.femalePercent}%</span>
+                  </div>
+                  
+                  <!-- Barras apiladas -->
+                  <div class="flex flex-col w-3 relative">
+                    <!-- Barra femenina (arriba) -->
+                    <div 
+                      class="w-full transition-all duration-1000 rounded-t"
+                      style="
+                        height: {isVisible ? (point.femalePercent / 100) * 90 : 0}px; 
+                        opacity: {isVisible ? 1 : 0};
+                        background: linear-gradient(to top, #ec4899, #f472b6);
+                        box-shadow: {isHighlighted ? '0 0 15px rgba(251, 191, 36, 0.7)' : 'none'};
+                        border: {isHighlighted ? '2px solid #fbbf24' : 'none'};
+                      "
+                    ></div>
+                    <!-- Barra masculina (abajo) -->
+                    <div 
+                      class="w-full transition-all duration-1000 rounded-b"
+                      style="
+                        height: {isVisible ? ((100 - point.femalePercent) / 100) * 90 : 0}px; 
+                        opacity: {isVisible ? 1 : 0};
+                        background: linear-gradient(to top, #06b6d4, #8b5cf6);
+                        box-shadow: {isHighlighted ? '0 0 15px rgba(251, 191, 36, 0.7)' : 'none'};
+                        border: {isHighlighted ? '2px solid #fbbf24' : 'none'};
+                      "
+                    ></div>
+                  </div>
+                  
+                  <span class="text-[10px] mt-1 {isHighlighted ? 'text-yellow-300 font-bold' : 'text-gray-400'}">{point.year}</span>
                 </div>
               {/each}
             </div>
+            
+            
             <div class="mt-4">
-              <span class="text-2xl font-bold text-cyan-400">
-                {industryData.demographicShifts[industryData.demographicShifts.length - 1].femalePercent}%
+              <span class="text-2xl font-bold text-yellow-300">
+                {industryData.demographicShifts.find(p => p.year === 2015)?.femalePercent}% / {100 - (industryData.demographicShifts.find(p => p.year === 2015)?.femalePercent || 0)}%
               </span>
-              <div class="text-gray-400 text-sm">en 2023</div>
-            </div>
-          </div>
-          <!-- Jugadores Masculinos -->
-          <div class="text-center">
-            <h4 class="text-xl font-bold text-white mb-4">Jugadores Masculinos</h4>
-            <div class="relative h-48 bg-gray-900 rounded-lg p-4 flex items-end justify-between">
-              {#each industryData.demographicShifts as point, index}
-                <div class="flex flex-col items-center w-1/6">
-                  <div 
-                    class="w-3 bg-gradient-to-t from-cyan-500 to-purple-500 rounded-t transition-all duration-1000 mb-1"
-                    style="height: {isVisible ? ((100 - point.femalePercent) / 100) * 90 : 0}px; opacity: {isVisible ? 1 : 0};"
-                  ></div>
-                  <span class="text-xs text-cyan-300 font-bold">{100 - point.femalePercent}%</span>
-                  <span class="text-[10px] text-gray-400">{point.year}</span>
-                </div>
-              {/each}
-            </div>
-            <div class="mt-4">
-              <span class="text-2xl font-bold text-cyan-400">
-                {100 - industryData.demographicShifts[industryData.demographicShifts.length - 1].femalePercent}%
-              </span>
-              <div class="text-gray-400 text-sm">en 2023</div>
+              <div class="text-gray-300 text-sm font-semibold">en 2015</div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-  </div> <!-- cierre explícito del div .max-w-7xl mx-auto relative z-10 -->
+  </div>
 </section>

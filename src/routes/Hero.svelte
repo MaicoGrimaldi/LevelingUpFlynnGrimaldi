@@ -108,8 +108,7 @@
         }
       </style>
       <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed" style="font-family: 'zrnic rg', sans-serif;">
-        30 joysticks. 30 juegos. Todo se mueve, brilla y cambia con cada dato. Explorá este universo interactivo.
-
+        <span class="text-cyan-400 font-bold">100 juegos épicos.</span> <span class="text-purple-400 font-bold">Alcance mundial.</span> <span class="text-pink-400 font-bold">Una experiencia visual única.</span> Descubrí datos que cobran vida en tiempo real.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
         <button onclick={scrollToGrid} class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 glow shadow-lg">

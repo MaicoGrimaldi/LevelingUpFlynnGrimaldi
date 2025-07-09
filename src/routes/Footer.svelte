@@ -69,29 +69,6 @@
       </div>
     </div>
 
-    <!-- Additional project info -->
-    <div 
-      class="border-t border-gray-800 pt-8 transform transition-all duration-1000"
-      class:translate-y-0={isVisible}
-      class:opacity-100={isVisible}
-      class:translate-y-10={!isVisible}
-      class:opacity-0={!isVisible}
-      style="transition-delay: 300ms;"
-    >
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-        <div>
-          <div class="text-2xl font-bold text-purple-400 mb-2">30</div>
-          <div class="text-gray-400 text-sm">Juegos Analizados</div>
-        </div>
-        <div>
-          <div class="text-2xl font-bold text-cyan-400 mb-2">8</div>
-          <div class="text-gray-400 text-sm">Secciones Interactivas</div>
-        </div>
-        <div>
-          <div class="text-2xl font-bold text-pink-400 mb-2">∞</div>
-          <div class="text-gray-400 text-sm">Posibilidades de Exploración</div>
-        </div>
-      </div>
       
       <!-- Technology stack -->
       <div class="mt-8 pt-6 border-t border-gray-800">
@@ -115,5 +92,4 @@
         </p>
       </div>
     </div>
-  </div>
 </footer>

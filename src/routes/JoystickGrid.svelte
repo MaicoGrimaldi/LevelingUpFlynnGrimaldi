@@ -236,21 +236,6 @@
           </button>
         </div>
         
-        <!-- Page jump -->
-        <div class="text-center mt-6">
-          <span class="text-gray-400 text-sm">
-            Ir a página: 
-          </span>
-          <select 
-            bind:value={currentPage}
-            onchange={() => goToPage(currentPage)}
-            class="ml-2 bg-gray-700 border border-gray-600 rounded px-2 py-1 text-white text-sm"
-          >
-            {#each Array.from({length: totalPages}, (_, i) => i + 1) as page}
-              <option value={page}>{page}</option>
-            {/each}
-          </select>
-        </div>
       {/if}
     {:else}
       <div class="text-center py-16">
