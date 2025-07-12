@@ -1,12 +1,7 @@
 # LevelingUpFlynnGrimaldi
 
-Este repositorio contiene el proyecto final de la materia **Visualizaci\u00f3n de Datos** de la Universidad Torcuato Di Tella.
-El trabajo fue realizado por dos alumnos que, a lo largo del semestre, fueron adquiriendo y aplicando
-conceptos de an\u00e1lisis y presentaci\u00f3n de informaci\u00f3n. 
+Este repo guarda nuestro proyecto final para la materia **Visualización de Datos** en la Universidad Torcuato Di Tella. Lo hicimos entre dos compañeros durante el cuatri, aplicando lo que fuimos aprendiendo sobre cómo analizar y mostrar datos de manera clara y visualmente copada.
 
-El objetivo principal del proyecto es plasmar todo el camino recorrido: desde la exploraci\u00f3n de los
-conjuntos de datos hasta la generaci\u00f3n de visualizaciones que permitan comunicar de manera clara y
-atractiva los hallazgos obtenidos.
+La idea fue recorrer todo el proceso: explorar los datasets, entender qué historias podían contar y armar visualizaciones que realmente comuniquen algo. No se trata solo de gráficos lindos, sino de encontrarle sentido a la información.
 
-Esta versi\u00f3n del repositorio sirve como punto de partida y registro del avance logrado.
-
+Este repo queda como registro del trabajo hecho, del aprendizaje y también como punto de partida para futuras mejoras, ideas nuevas o simplemente para mirar atrás y decir: “che, mirá todo lo que hicimos”.
